@@ -17,6 +17,7 @@ export class CategoriaService {
       querySnapshot.forEach((doc:any) => {
         let objeto = new Categoria(doc.id, doc.data().nombre, doc.data().icono);
         this._categorias.push(objeto);
+        console.log();
       });
     })
   }
