@@ -1,0 +1,38 @@
+ion-toolbar{
+  --background: #ecc282;
+}
+ion-content{
+  --background: #deacac;
+}
+ion-header *{
+  color: #512a1c;
+}
+ion-content *{
+  color: #3b2020;
+  font-weight: bold;
+}
+#factura{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 6%;
+}
+#infoPedido{
+  min-width:300px;
+}
+table{
+  border-collapse: separate;
+}
+th {
+  padding: 0px 10px;
+}
+#infoPedido > div{
+  border: 2px solid black;
+  background: white;
+}
+ion-button{
+  --background: #e0d7d7;
+}
+ion-button > span{
+  color: black;
+}

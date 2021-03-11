@@ -1,0 +1,66 @@
+<ion-header>
+  <div style="display: flex;">
+    <ion-toolbar>
+      <ion-title>
+        Factura
+      </ion-title>
+  </ion-toolbar>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div id="factura">
+    <div id="infoPedido">
+      <div>
+        <ion-row class="row">
+          <ion-col class="col ion-text-center">
+            Pedido
+          </ion-col>
+        </ion-row>
+      </div>
+      <div>
+        <table width="100%">
+          <tr class="ion-text-center">
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+          </tr>
+          <tr class="ion-text-center" *ngFor="let producto of listadoFactura">
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.precio}}€</td>
+            <td>{{producto.cantidad}}</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <ion-row class="row ion-text-center">
+          <ion-col class="col">
+            Precio total
+          </ion-col>
+          <ion-col class="col">
+            {{factura.totalFactura}}€
+          </ion-col>
+        </ion-row>
+      </div>
+      <div>
+        <ion-row class="row">
+          <ion-col class="col ion-text-center">
+            Codigo:
+          </ion-col>
+        </ion-row>
+        <ion-row class="row">
+          <ion-col class="col ion-text-center">
+            {{factura.codigo}}
+          </ion-col>
+        </ion-row>
+      </div>
+      <ion-row>
+        <ion-button style="width: 100%;" [routerLink]="['']">
+        <span>
+          Comprar mas
+        </span>
+        </ion-button>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

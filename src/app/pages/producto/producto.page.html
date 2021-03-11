@@ -1,0 +1,72 @@
+<ion-header [translucent]="true" style="display: flex;">
+  <ion-toolbar class="new-background-color">
+    <div class="encabezado">
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+      </ion-buttons>
+        <ion-title>
+          Producto
+        </ion-title>
+        <app-button-listado></app-button-listado>
+        </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <div class="divImg">
+      <img [src]="'assets/images/'+producto.nombre+'.jpg'">
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <p text-wrap class="tituloProducto">{{producto.nombre}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-start">
+          <ion-label>Precio:</ion-label>
+        </ion-col>
+        <ion-col class="ion-text-center">
+          <ion-label>{{producto.precio}}€</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-start">
+          <ion-label>Cantidad:</ion-label>
+        </ion-col>
+        <ion-col id="colSpinner" class="ion-text-end">
+            <ion-button class="btnSpinner" *ngIf="formService.validateControl('spinner') && cantidad!=null" (click)="minus()">
+              <ion-icon name="remove-outline"></ion-icon>
+            </ion-button>
+            <form [formGroup]="formCantidad">
+              <ion-input [(ngModel)]="cantidad" formControlName="spinner" type="number" class="ion-text-center" style="background-color: white;" (keypress)="addNumber($event)"></ion-input>
+              <ion-label id="labelError" *ngIf="!formService.validateControl('spinner')" style="font-weight: bold;">{{formService.getErrorMessage("spinner")}}</ion-label>
+            </form>
+            <ion-button class="btnSpinner" *ngIf="formService.validateControl('spinner') && cantidad!=null" (click)="plus()">
+              <ion-icon name="add-outline"></ion-icon>
+            </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="formService.validateControl('spinner') && cantidad!=null" >
+        <ion-col class="ion-text-end colBtnAdd">
+          <ion-button class="btnAdd" (click)="listadoService.addCantidad(producto,cantidad)">
+            <span>Añadir</span>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="producto.ingredientes.length!=0">
+        <div id="table" class="col tableBorder">
+          <div id="tableHeader" class="row tableBorder"><ion-label>Ingredientes</ion-label></div>
+          <div id="tableItem" class="row" *ngFor="let ingrediente of producto.ingredientes;let i = index">
+              <ion-label>{{i+1}}. {{ingrediente}}</ion-label>
+          </div>
+        </div>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

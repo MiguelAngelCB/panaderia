@@ -1,0 +1,88 @@
+ion-content > div{
+  margin-bottom: 10px;
+}
+ion-title{
+  color:black;
+}
+ion-content{
+  --background: #dcac88;
+  color: black;
+}
+ion-content *{
+  color: black;
+}
+.new-background-color{
+  --background: #52525269;
+}
+.tituloProducto{
+  font-size: 2rem;
+  font-weight: bold;
+}
+.colBtnAdd{
+  justify-content: right;
+}
+.btnAdd{
+  --background: #1e3942;
+  border-radius: 50px;
+  width: 20%;
+  height: 50px;
+}
+.btnAdd > span{
+  font-weight: bold;
+}
+#colSpinner{
+  display: flex;justify-content: flex-end;
+}
+#table{
+  background-color: white;
+}
+#tableHeader{
+  font-weight: bold;justify-content: center; background-color: antiquewhite;color:black;
+}
+#tableItem{
+  justify-content: center;color:black;
+}
+.tableBorder{
+  border: 2px green solid;
+}
+.btnSpinner{
+  --background: #1e3942;
+  margin-top: 0px;
+  height: 100%;
+}
+.btnSpinner *{
+  color: white;
+}
+.encabezado *{
+  color: white;
+}
+.encabezado,ion-toolbar {
+  display: flex;
+}
+.divImg{
+  display: flex;flex-direction: column;align-items: center;
+}
+.divImg > img{
+  width: 20%;width: 400px;
+}
+p{
+  margin-bottom: 0px;
+}
+ion-label{
+  font-size: 1.5rem;font-weight: bold;
+}
+#labelError{
+  font-size: 1rem;
+}
+ion-button *{
+  color:white;
+}
+ion-badge{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+.inputSpinner{
+  border: 2px green ridge;
+  background-color: antiquewhite;
+}

@@ -1,0 +1,62 @@
+ion-header *{
+  --background: #22314c;
+  color: white;
+}
+img{
+  min-width: 80px;
+}
+ion-content{
+  --background: #556e70;
+ion-card-title{
+  color: white;
+}
+}
+.inputSpinner{
+  border: 2px green ridge;background-color: antiquewhite;
+}
+ion-card{
+  background: #373737;
+}
+ion-button *{
+  color:white;
+}
+.btnSpinner{
+  --background: #1e3942;
+  margin-top: 0px;
+  height: 30px;
+}
+.textCantidad{
+  background-color: white;
+  color: black;
+  height: 30px;
+}
+.priceCuantity{
+  display: flex;
+}
+.priceCuantity > div{
+  margin-top: 15px;
+}
+.gridPrecioTotal *{
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+}
+.producto{
+  display: flex;
+}
+#emptyList{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  width: 200px;
+  height: 200px;
+}
+#emptyList > ion-label{
+  font-weight: bold;font-size: 20px;color: white;
+}
+.buttonTramitarPedido{
+  --background: #41817a;
+  width: 100%;
+}

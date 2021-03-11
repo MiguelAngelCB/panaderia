@@ -1,0 +1,39 @@
+.new-background-color{
+  --background: #c49f48;
+}
+.encabezado {
+  display: flex;
+}
+.encabezado *{
+  color: white;
+}
+ion-content{
+  --background:url(../../../assets/images/bread-399286_1920.jpg);
+}
+.containerProductos{
+  display: flex;flex-wrap: wrap;justify-content: space-evenly;
+}
+.containerProductos > div{
+  width: 400px;
+}
+.containerProductos > img{
+  width: 100%;
+}
+ion-row{
+  display: flex;width: 100%;
+}
+ion-card-header{
+  display: flex;background-color: white;
+}
+ion-card-title{
+  color: black;
+}
+.precioProducto{
+  font-size: 18px;
+  font-weight: bold;
+  right: 2rem;
+  bottom: 0.9rem;
+}
+ion-badge{
+  position: absolute;top: 0px;right: -8px;
+}

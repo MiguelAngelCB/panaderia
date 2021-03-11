@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item>
+      <ion-back-button></ion-back-button>
+      <ion-title>Listado encargo</ion-title>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let producto of productos | keyvalue">
+    <ion-card-header>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="7">
+            <div class="producto">
+              <div>
+                <img [src]="'assets/images/'+producto.value.nombre+'.jpg'" height="60px" width="80px" alt="ion">
+              </div>
+              <div>
+                <ion-card-title>{{producto.value.nombre}}</ion-card-title>
+                <ion-buttons size="small">
+                  <ion-button size="small" (click)="listadoService.eliminarProducto(producto.value)">
+                    Remove
+                  </ion-button>
+                </ion-buttons>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="priceCuantity">
+              <div style="display:flex;width: 70%">
+                <ion-button class="btnSpinner" (click)="listadoService.disminuirCantidad(producto.value)">
+                  <ion-icon name="remove-outline"></ion-icon>
+                </ion-button>
+                <ion-title class="ion-text-center textCantidad">{{producto.value.cantidad}}</ion-title>
+                <ion-button class="btnSpinner" (click)="listadoService.aumentarCantiad(producto.value)">
+                  <ion-icon name="add-outline"></ion-icon>
+                </ion-button>
+              </div>
+              <div class="ion-text-end" style="margin: 15px 10%;">
+                <ion-title>{{listadoService.getPrecioCantidad(producto.value)}}€</ion-title>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-header>
+  </ion-card>
+  <ion-grid class="gridPrecioTotal" *ngIf="productos.size!=0">
+    <ion-row>
+      <ion-col size="9">
+        <ion-title>
+          Precio total:
+        </ion-title>
+      </ion-col>
+      <ion-col size="3">
+        {{listadoService.getPrecioTotal()}}€
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+      <ion-button class="buttonTramitarPedido" (click)="verFactura()">Tramitar pedido</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div id="emptyList" *ngIf="productos.size==0">
+    <ion-label>Listado Vacio</ion-label>
+  </div>
+</ion-content>
