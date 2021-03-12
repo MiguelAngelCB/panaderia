@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { NetworkInterface } from '@ionic-native/network-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -6,12 +7,19 @@ import { Injectable } from '@angular/core';
 export class IpService {
   private _ip:string;
 
-  constructor() {
+  constructor(private network:NetworkInterface) {
     this.obtenerIp();
   }
 
-  public obtenerIp() {
-    this._ip="192.168.1.123";
+  async obtenerIp() {
+    await this.network.getWiFiIPAddress().then(address => {
+      this._ip=address.ip;
+    })
+    .catch(error => console.log(`Unable to get wifi IP: ${error}`));
+    await this.network.getCarrierIPAddress().then(address => {
+      this._ip=address.ip;
+  })
+    .catch(error => console.log(`Unable to get carrier IP: ${error}`));
   }
 
   get ip(): string {
