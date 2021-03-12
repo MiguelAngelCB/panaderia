@@ -14,12 +14,13 @@ import {environment} from '../environments/environment';
 import {ProductoService} from './shared/producto.service';
 import {ListadoEncargoService} from './shared/listado-encargo.service';
 import { NetworkInterface } from '@ionic-native/network-interface';
+import { NetworkInterfaceMock } from './mocks';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,PipesModule,AngularFireModule.initializeApp(environment.firebase)],
-  providers: [{provide: RouteReuseStrategy, useClass: IonicRouteStrategy}, FormService,ProductoService,ListadoEncargoService,NetworkInterface],
+  providers: [{provide: RouteReuseStrategy, useClass: IonicRouteStrategy}, FormService,ProductoService,ListadoEncargoService,{provide: NetworkInterface, useClass: NetworkInterfaceMock}],
   bootstrap: [AppComponent],
   exports: [
   ]
